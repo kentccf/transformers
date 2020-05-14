@@ -74,6 +74,12 @@ if _has_sklearn:
             return {"acc": simple_accuracy(preds, labels)}
         elif task_name == "hans":
             return {"acc": simple_accuracy(preds, labels)}
+        
+        # Adding task option that specifies to use simple accuracy for BoolQ
+        elif task_name == "boolq":
+            return {"acc": simple_accuracy(preds, labels)}
+        elif task_name == "scc":
+            return {"acc": acc_and_f1(preds, labels)}
         else:
             raise KeyError(task_name)
 
